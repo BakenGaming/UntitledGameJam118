@@ -16,19 +16,10 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Attack",
+                    "name": "Action",
                     "type": "Button",
                     "id": "40343b10-04cd-4c30-9fa6-18c6f1ac5bb0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "f3b5c4e7-95d7-45da-aca7-8ea12f7cb01f",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -37,83 +28,30 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "ec9d659b-c363-455c-9dad-02f4530d903b",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dash",
+                    "name": "Pickup",
                     "type": "Button",
-                    "id": "b4054987-ec9d-4f6b-9788-17913d534d55",
-                    "expectedControlType": "Button",
+                    "id": "b4a25899-9640-42e6-a115-685ed7dd3c9a",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "MousePosition",
-                    "type": "Value",
-                    "id": "d386a157-93bb-4bcc-9974-45494d04743d",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "8c7464c5-8355-42de-acf1-b0da232f989c",
-                    "path": "<Keyboard>/f",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e12b5c70-89b8-4631-8a2c-7ad812337561",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "929fdd92-6b8f-4805-97c9-6b0fb3ffc2d3",
-                    "path": "<Keyboard>/ctrl",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7d6b7b40-8abc-46f5-98a8-ad26b45a2e0b",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6d04284a-3a5d-4d76-9012-625390bb9e36",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Attack",
+                    "action": "Action",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -262,34 +200,12 @@
                 },
                 {
                     "name": "",
-                    "id": "88bef3a5-62bb-43e3-92ad-a0a234b3b692",
-                    "path": "<Gamepad>/buttonNorth",
+                    "id": "9656c254-76a3-47d9-ab19-0d8a047cd4c3",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "de6de362-4e5c-496a-bdaf-a32e6ac10878",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "33929838-3b44-416c-b7ec-4f186f0a0219",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MousePosition",
+                    "action": "Pickup",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

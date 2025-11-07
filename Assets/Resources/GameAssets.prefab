@@ -48,5 +48,12 @@ MonoBehaviour:
   pfDamagePopup: {fileID: 0}
   pfTextPopup: {fileID: 0}
   pfPlayerObject: {fileID: 2146989686854907381, guid: e0b962593d06da14ca669c87fc0b77b0, type: 3}
+  pfPlasma: {fileID: 8760345688569948486, guid: 07d6ee09da2b98340a6b5c86f8cc3165, type: 3}
+  levelSelectBG: {fileID: -4598166131803665828, guid: 795490f658e9db748921bd8797089629, type: 3}
+  levelSelectedBG: {fileID: 825061702309144797, guid: 795490f658e9db748921bd8797089629, type: 3}
+  difficultyMarkers:
+  - {fileID: 3811286827326932436, guid: 795490f658e9db748921bd8797089629, type: 3}
+  - {fileID: 2971309467386807649, guid: 795490f658e9db748921bd8797089629, type: 3}
+  - {fileID: 8238137503288066155, guid: 795490f658e9db748921bd8797089629, type: 3}
   audioClipArray: []
   musicTrackArray: []

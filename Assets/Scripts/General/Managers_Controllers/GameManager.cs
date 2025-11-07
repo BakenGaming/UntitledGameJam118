@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using CodeMonkey.MonoBehaviours;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,22 +9,40 @@ public class GameManager : MonoBehaviour
     public static GameManager i { get { return _i; } }
     [SerializeField] private Transform sysMessagePoint;
     [SerializeField] private Transform spawnPoint;
-    private GameObject playerGO;
+    [SerializeField] private UIController gameUIController;
+    private GameObject playerGO, activeLevel;
     private bool isPaused;
 
 
     #endregion
-    
+
     #region Initialize
+    void OnDisable()
+    {
+        LevelExitHandler.OnExitReached -= HandleLevelExit;
+    }
     private void Awake() 
     {
         _i = this;  
         SetupObjectPools();  
-        Initialize();
+        gameUIController.Initialize();
+        //Initialize();
     }
 
-    private void Initialize() 
+    public void Initialize(GameObject _newLevel)
     {
+        activeLevel = Instantiate(_newLevel, transform.position, Quaternion.identity);
+        activeLevel.transform.Find("Walls").GetComponent<TilemapRenderer>().maskInteraction 
+                = SpriteMaskInteraction.VisibleInsideMask;
+        activeLevel.transform.Find("Floor").GetComponent<TilemapRenderer>().maskInteraction 
+                = SpriteMaskInteraction.VisibleInsideMask;
+        LevelExitHandler.OnExitReached += HandleLevelExit;
+        SetStartingPoint(activeLevel.transform.Find("Start").transform);
+    }
+
+    public void SetStartingPoint(Transform _spawnPoint)
+    {
+        spawnPoint = _spawnPoint;
         SpawnPlayerObject();
     }
 
@@ -34,6 +51,15 @@ public class GameManager : MonoBehaviour
         playerGO = Instantiate(GameAssets.i.pfPlayerObject, spawnPoint);
         playerGO.transform.parent = null;
         playerGO.GetComponent<IHandler>().Initialize();
+        CameraController.i.CameraSetup(playerGO);
+        gameUIController.PrepareUI();
+        UnPauseGame();
+    }
+
+    private void HandleLevelExit()
+    {
+        Destroy(activeLevel.gameObject);
+        Destroy(playerGO.gameObject);
     }
 
     public void SetupObjectPools()

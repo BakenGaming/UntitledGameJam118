@@ -7,6 +7,7 @@ public class PlayerHandler : MonoBehaviour, IHandler
 {
     #region Variables
     [SerializeField] private PlayerStatsSO playerStatsSO;
+    [SerializeField] private SpriteMask lightMask;
 
     private StatSystem _statSystem;
     private HealthSystem _healthSystem;
@@ -44,6 +45,14 @@ public class PlayerHandler : MonoBehaviour, IHandler
     {
         throw new System.NotImplementedException();
     }
+
+    public void UpdateLightMaskSize(bool _increase)
+    {
+        if(_increase) lightMask.transform.localScale = new Vector2(lightMask.transform.localScale.x + .5f,
+            lightMask.transform.localScale.y + .5f);
+        else lightMask.transform.localScale = new Vector2(lightMask.transform.localScale.x - .5f,
+            lightMask.transform.localScale.y - .5f);
+    }
     #endregion
 
     #region Player Setup
@@ -51,7 +60,7 @@ public class PlayerHandler : MonoBehaviour, IHandler
     {
         _statSystem = new StatSystem(playerStatsSO);
         _healthSystem = new HealthSystem(_statSystem.GetPlayerHealth());
-        GetComponent<IInputHandler>().Initialize();
+        GetComponent<IInputHandler>().Initialize(this);
         GetComponent<IAttackHandler>().Initialize();
     }
     #endregion

@@ -102,19 +102,10 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Attack"",
+                    ""name"": ""Action"",
                     ""type"": ""Button"",
                     ""id"": ""40343b10-04cd-4c30-9fa6-18c6f1ac5bb0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""f3b5c4e7-95d7-45da-aca7-8ea12f7cb01f"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -123,83 +114,30 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""ec9d659b-c363-455c-9dad-02f4530d903b"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Dash"",
+                    ""name"": ""Pickup"",
                     ""type"": ""Button"",
-                    ""id"": ""b4054987-ec9d-4f6b-9788-17913d534d55"",
-                    ""expectedControlType"": ""Button"",
+                    ""id"": ""b4a25899-9640-42e6-a115-685ed7dd3c9a"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""MousePosition"",
-                    ""type"": ""Value"",
-                    ""id"": ""d386a157-93bb-4bcc-9974-45494d04743d"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""8c7464c5-8355-42de-acf1-b0da232f989c"",
-                    ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e12b5c70-89b8-4631-8a2c-7ad812337561"",
-                    ""path"": ""<Gamepad>/buttonWest"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""929fdd92-6b8f-4805-97c9-6b0fb3ffc2d3"",
-                    ""path"": ""<Keyboard>/ctrl"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7d6b7b40-8abc-46f5-98a8-ad26b45a2e0b"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6d04284a-3a5d-4d76-9012-625390bb9e36"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Attack"",
+                    ""action"": ""Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -348,34 +286,12 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""88bef3a5-62bb-43e3-92ad-a0a234b3b692"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""id"": ""9656c254-76a3-47d9-ab19-0d8a047cd4c3"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""de6de362-4e5c-496a-bdaf-a32e6ac10878"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dash"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""33929838-3b44-416c-b7ec-4f186f0a0219"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MousePosition"",
+                    ""action"": ""Pickup"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -457,11 +373,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         // TopDownControls
         m_TopDownControls = asset.FindActionMap("TopDownControls", throwIfNotFound: true);
         m_TopDownControls_MoveInput = m_TopDownControls.FindAction("MoveInput", throwIfNotFound: true);
-        m_TopDownControls_Attack = m_TopDownControls.FindAction("Attack", throwIfNotFound: true);
-        m_TopDownControls_Interact = m_TopDownControls.FindAction("Interact", throwIfNotFound: true);
+        m_TopDownControls_Action = m_TopDownControls.FindAction("Action", throwIfNotFound: true);
         m_TopDownControls_Pause = m_TopDownControls.FindAction("Pause", throwIfNotFound: true);
-        m_TopDownControls_Dash = m_TopDownControls.FindAction("Dash", throwIfNotFound: true);
-        m_TopDownControls_MousePosition = m_TopDownControls.FindAction("MousePosition", throwIfNotFound: true);
+        m_TopDownControls_Pickup = m_TopDownControls.FindAction("Pickup", throwIfNotFound: true);
         // UIControls
         m_UIControls = asset.FindActionMap("UIControls", throwIfNotFound: true);
         m_UIControls_Accept = m_UIControls.FindAction("Accept", throwIfNotFound: true);
@@ -548,11 +462,9 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_TopDownControls;
     private List<ITopDownControlsActions> m_TopDownControlsActionsCallbackInterfaces = new List<ITopDownControlsActions>();
     private readonly InputAction m_TopDownControls_MoveInput;
-    private readonly InputAction m_TopDownControls_Attack;
-    private readonly InputAction m_TopDownControls_Interact;
+    private readonly InputAction m_TopDownControls_Action;
     private readonly InputAction m_TopDownControls_Pause;
-    private readonly InputAction m_TopDownControls_Dash;
-    private readonly InputAction m_TopDownControls_MousePosition;
+    private readonly InputAction m_TopDownControls_Pickup;
     /// <summary>
     /// Provides access to input actions defined in input action map "TopDownControls".
     /// </summary>
@@ -569,25 +481,17 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @MoveInput => m_Wrapper.m_TopDownControls_MoveInput;
         /// <summary>
-        /// Provides access to the underlying input action "TopDownControls/Attack".
+        /// Provides access to the underlying input action "TopDownControls/Action".
         /// </summary>
-        public InputAction @Attack => m_Wrapper.m_TopDownControls_Attack;
-        /// <summary>
-        /// Provides access to the underlying input action "TopDownControls/Interact".
-        /// </summary>
-        public InputAction @Interact => m_Wrapper.m_TopDownControls_Interact;
+        public InputAction @Action => m_Wrapper.m_TopDownControls_Action;
         /// <summary>
         /// Provides access to the underlying input action "TopDownControls/Pause".
         /// </summary>
         public InputAction @Pause => m_Wrapper.m_TopDownControls_Pause;
         /// <summary>
-        /// Provides access to the underlying input action "TopDownControls/Dash".
+        /// Provides access to the underlying input action "TopDownControls/Pickup".
         /// </summary>
-        public InputAction @Dash => m_Wrapper.m_TopDownControls_Dash;
-        /// <summary>
-        /// Provides access to the underlying input action "TopDownControls/MousePosition".
-        /// </summary>
-        public InputAction @MousePosition => m_Wrapper.m_TopDownControls_MousePosition;
+        public InputAction @Pickup => m_Wrapper.m_TopDownControls_Pickup;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -617,21 +521,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @MoveInput.started += instance.OnMoveInput;
             @MoveInput.performed += instance.OnMoveInput;
             @MoveInput.canceled += instance.OnMoveInput;
-            @Attack.started += instance.OnAttack;
-            @Attack.performed += instance.OnAttack;
-            @Attack.canceled += instance.OnAttack;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
+            @Action.started += instance.OnAction;
+            @Action.performed += instance.OnAction;
+            @Action.canceled += instance.OnAction;
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
-            @Dash.started += instance.OnDash;
-            @Dash.performed += instance.OnDash;
-            @Dash.canceled += instance.OnDash;
-            @MousePosition.started += instance.OnMousePosition;
-            @MousePosition.performed += instance.OnMousePosition;
-            @MousePosition.canceled += instance.OnMousePosition;
+            @Pickup.started += instance.OnPickup;
+            @Pickup.performed += instance.OnPickup;
+            @Pickup.canceled += instance.OnPickup;
         }
 
         /// <summary>
@@ -646,21 +544,15 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
             @MoveInput.started -= instance.OnMoveInput;
             @MoveInput.performed -= instance.OnMoveInput;
             @MoveInput.canceled -= instance.OnMoveInput;
-            @Attack.started -= instance.OnAttack;
-            @Attack.performed -= instance.OnAttack;
-            @Attack.canceled -= instance.OnAttack;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
+            @Action.started -= instance.OnAction;
+            @Action.performed -= instance.OnAction;
+            @Action.canceled -= instance.OnAction;
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
-            @Dash.started -= instance.OnDash;
-            @Dash.performed -= instance.OnDash;
-            @Dash.canceled -= instance.OnDash;
-            @MousePosition.started -= instance.OnMousePosition;
-            @MousePosition.performed -= instance.OnMousePosition;
-            @MousePosition.canceled -= instance.OnMousePosition;
+            @Pickup.started -= instance.OnPickup;
+            @Pickup.performed -= instance.OnPickup;
+            @Pickup.canceled -= instance.OnPickup;
         }
 
         /// <summary>
@@ -816,19 +708,12 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMoveInput(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Attack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Action" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnAttack(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
+        void OnAction(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -837,19 +722,12 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPause(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Pickup" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnDash(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "MousePosition" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMousePosition(InputAction.CallbackContext context);
+        void OnPickup(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UIControls" which allows adding and removing callbacks.

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -26,6 +27,10 @@ public class GameAssets : MonoBehaviour
     public Transform pfDamagePopup;
     public Transform pfTextPopup;
     public GameObject pfPlayerObject;
+    public GameObject pfPlasma;
+    public Sprite levelSelectBG;
+    public Sprite levelSelectedBG;
+    public Sprite[] difficultyMarkers;
   
     public SoundAudioClip[] audioClipArray;
     public MusicAudioClip[] musicTrackArray;
