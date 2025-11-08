@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 
 public class UIController : MonoBehaviour
@@ -38,8 +39,11 @@ public class UIController : MonoBehaviour
         
         //settingsMenu.SetActive(false);
         _i = this;
-        CloseTextInformation();
-        ActivateLevelSelectMenu();
+        if(!isMainMenu)
+        {
+            CloseTextInformation();
+            ActivateLevelSelectMenu();
+        }
     }
     #endregion
     #region Menus
@@ -76,7 +80,10 @@ public class UIController : MonoBehaviour
         keyImage.SetActive(false);
         plasmaObject.SetActive(false);
         levelSelectMenu.SetActive(true);
-        levelSelectMenu.GetComponent<LevelSelectManager>().Initialize();
+        if(GameManager.i.GetGameHasStarted())
+            levelSelectMenu.GetComponent<LevelSelectManager>().RefreshMenu();
+        else
+            levelSelectMenu.GetComponent<LevelSelectManager>().Initialize();
         LevelButtonManager.OnLevelSelected += DeactivateLevelSelectMenu;
     }
     private void DeactivateLevelSelectMenu()

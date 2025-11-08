@@ -10,8 +10,6 @@ public class PlayerHandler : MonoBehaviour, IHandler
     [SerializeField] private SpriteMask lightMask;
 
     private StatSystem _statSystem;
-    private HealthSystem _healthSystem;
-
     #endregion
     #region Initialize
     public void Initialize()
@@ -22,11 +20,6 @@ public class PlayerHandler : MonoBehaviour, IHandler
     #endregion
 
     #region Get Functions
-    public HealthSystem GetHealthSystem()
-    {
-        return _healthSystem;
-    }
-
     public StatSystem GetStatSystem()
     {
         return _statSystem;
@@ -59,9 +52,7 @@ public class PlayerHandler : MonoBehaviour, IHandler
     private void SetupPlayer()
     {
         _statSystem = new StatSystem(playerStatsSO);
-        _healthSystem = new HealthSystem(_statSystem.GetPlayerHealth());
         GetComponent<IInputHandler>().Initialize(this);
-        GetComponent<IAttackHandler>().Initialize();
     }
     #endregion
 }

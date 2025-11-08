@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform spawnPoint;
     [SerializeField] private UIController gameUIController;
     private GameObject playerGO, activeLevel;
-    private bool isPaused;
+    private bool isPaused, gameHasStarted;
 
 
     #endregion
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
         _i = this;  
         SetupObjectPools();  
         gameUIController.Initialize();
+        gameHasStarted = true;
         //Initialize();
     }
 
@@ -82,5 +83,6 @@ public class GameManager : MonoBehaviour
     public Transform GetSysMessagePoint(){ return sysMessagePoint;}
     public GameObject GetPlayerGO() { return playerGO; }
     public bool GetIsPaused() { return isPaused; }
+    public bool GetGameHasStarted(){return gameHasStarted;}
 
 }

@@ -305,7 +305,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""name"": ""Accept"",
                     ""type"": ""Button"",
                     ""id"": ""bc630caa-35f6-4c46-9cf4-8efe4eb5af74"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -314,7 +314,7 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                     ""name"": ""ExitMenu"",
                     ""type"": ""Button"",
                     ""id"": ""ab4f568d-093f-4fb0-9221-9894cc4768b7"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -334,30 +334,8 @@ public partial class @GameControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""18acdff6-0e67-4d5a-9536-1669cd0600fd"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Accept"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""88847c84-7faa-4425-bd82-a01b68c6f16f"",
                     ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ExitMenu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""77ed7c5c-ef4c-41df-aa03-bd87bafcdd4f"",
-                    ""path"": ""<Gamepad>/buttonEast"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

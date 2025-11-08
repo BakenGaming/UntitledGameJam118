@@ -6,11 +6,13 @@ using System;
 public class LevelButtonManager : MonoBehaviour
 {
     public static event Action OnLevelSelected;
-    [SerializeField] private LevelSO _level;
-    [SerializeField] private GameObject levelButton;
+    private GameObject levelButton;
+    private LevelSO level;
 
-    public void Initialize()
+    public void Initialize(LevelSO _level)
     {
+        level = _level;
+        levelButton = transform.Find("Button").gameObject;
         levelButton.GetComponent<Image>().sprite = GameAssets.i.levelSelectBG;
         levelButton.transform.Find("LevelName").GetComponent<TextMeshProUGUI>().text = _level.levelName;
         levelButton.transform.Find("Difficulty").GetComponent<Image>().sprite = GameAssets.i.difficultyMarkers[_level.difficultyRating];
@@ -18,7 +20,7 @@ public class LevelButtonManager : MonoBehaviour
 
     public void SelectLevel()
     {
-        GameManager.i.Initialize(_level.levelPrefab);
+        GameManager.i.Initialize(level.levelPrefab);
         OnLevelSelected?.Invoke();
     }
 }

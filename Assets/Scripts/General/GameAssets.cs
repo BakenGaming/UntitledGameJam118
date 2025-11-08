@@ -30,6 +30,7 @@ public class GameAssets : MonoBehaviour
     public GameObject pfPlasma;
     public Sprite levelSelectBG;
     public Sprite levelSelectedBG;
+    public GameObject pfLevelButton;
     public Sprite[] difficultyMarkers;
   
     public SoundAudioClip[] audioClipArray;
