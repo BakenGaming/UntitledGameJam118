@@ -30,15 +30,17 @@ public class GameManager : MonoBehaviour
         //Initialize();
     }
 
-    public void Initialize(GameObject _newLevel)
+    public void Initialize(LevelSO _level)
     {
-        activeLevel = Instantiate(_newLevel, transform.position, Quaternion.identity);
+        activeLevel = Instantiate(_level.levelPrefab, transform.position, Quaternion.identity);
         activeLevel.transform.Find("Walls").GetComponent<TilemapRenderer>().maskInteraction 
                 = SpriteMaskInteraction.VisibleInsideMask;
         activeLevel.transform.Find("Floor").GetComponent<TilemapRenderer>().maskInteraction 
                 = SpriteMaskInteraction.VisibleInsideMask;
+        activeLevel.transform.Find("End").GetComponentInChildren<LevelExitHandler>().SetThisLevel(_level);
         LevelExitHandler.OnExitReached += HandleLevelExit;
         SetStartingPoint(activeLevel.transform.Find("Start").transform);
+        if(_level.isTutorial) gameUIController.OpenTutorialMenu(_level.tutorialName);
     }
 
     public void SetStartingPoint(Transform _spawnPoint)
@@ -54,10 +56,12 @@ public class GameManager : MonoBehaviour
         playerGO.GetComponent<IHandler>().Initialize();
         CameraController.i.CameraSetup(playerGO);
         gameUIController.PrepareUI();
+        PlayerInputController_TopDown.OnPauseGame += HandlePauseGame;
+        PlayerInputController_TopDown.OnUnpauseGame += HandleUnpauseGame;
         UnPauseGame();
     }
 
-    private void HandleLevelExit()
+    private void HandleLevelExit(LevelSO _level)
     {
         Destroy(activeLevel.gameObject);
         Destroy(playerGO.gameObject);
@@ -79,6 +83,9 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame(){if(isPaused) return; else isPaused = true;}
     public void UnPauseGame(){if(isPaused) isPaused = false; else return;}
+
+    private void HandlePauseGame(){gameUIController.OpenPauseMenu();}
+    private void HandleUnpauseGame(){gameUIController.ClosePauseMenu();}
     
     public Transform GetSysMessagePoint(){ return sysMessagePoint;}
     public GameObject GetPlayerGO() { return playerGO; }

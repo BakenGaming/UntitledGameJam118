@@ -234,6 +234,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -413,6 +426,94 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Button_Resume_H
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 931
+        width: 435
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204daaf7130104d4cb8434bcbfef545d
+      internalID: 1616560268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Resume_W
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 814
+        width: 435
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef3be3c05819862429465471d98d049f
+      internalID: -484625908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Main_H
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 698
+        width: 520
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff4f7f147bd0bc4b8932a76d15cbe4a
+      internalID: -2072534634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Main_W
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 580
+        width: 520
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e7843a429ca9314db444cb6fad11ba7
+      internalID: -302584712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -429,14 +530,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":435.0,"y":100.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      ButtonText_1: 6485138537580808889
       ButtonText_11: 2049658752
       ButtonText_13: 1818051481
       ButtonText_14: -1156298790
       ButtonText_15: 1709770204
       ButtonText_17: 808021047
       ButtonText_19: 187004733
-      ButtonText_3: -4162670216575189474
       ButtonText_4: -1226994866
       ButtonText_5: -2101772135
       ButtonText_7: 171136523
@@ -445,6 +544,10 @@ TextureImporter:
       Button_Credits_W: -728542400
       Button_Exit_H: 424609855
       Button_Exit_W: 1811536925
+      Button_Main_H: -2072534634
+      Button_Main_W: -4162670216575189474
+      Button_Resume_H: 1616560268
+      Button_Resume_W: 6485138537580808889
       Button_Settings_H: 785390224
       Button_Settings_W: 1308322089
       Button_Start_H: -6429939275512705550

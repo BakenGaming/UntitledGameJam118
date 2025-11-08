@@ -15,10 +15,12 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject levelSelectMenu;
     [SerializeField] private GameObject textInformationPanel;
     [SerializeField] private TextMeshProUGUI textInformationPanelText;
-    [SerializeField] private bool isMainMenu;
+    [SerializeField] private GameObject tutorialMenu;
     [SerializeField] private GameObject plasmaObject;
     [SerializeField] private TextMeshProUGUI plasmaCount;
     [SerializeField] private GameObject keyImage;
+    [SerializeField] private bool isMainMenu;
+    private string _currentTutorial="";
 
     private void OnEnable() 
     {
@@ -34,20 +36,21 @@ public class UIController : MonoBehaviour
     public void Initialize()
     {
         //GetComponent<VolumeSettings>().Initialize();        
-        //if(!isMainMenu) pauseMenu.SetActive(false);
         //else creditsScreen.SetActive(false);
-        
         //settingsMenu.SetActive(false);
+        
+        if(!isMainMenu) pauseMenu.SetActive(false);
         _i = this;
         if(!isMainMenu)
         {
+            CloseTutorialMenu();
             CloseTextInformation();
-            ActivateLevelSelectMenu();
+            ActivateLevelSelectMenu(null);
         }
     }
     #endregion
     #region Menus
-    private void OpenPauseMenu()
+    public void OpenPauseMenu()
     {
         pauseMenu.SetActive(true);
         GameManager.i.PauseGame();
@@ -74,15 +77,14 @@ public class UIController : MonoBehaviour
     {
         creditsScreen.SetActive(false);
     }
-    private void ActivateLevelSelectMenu()
+    private void ActivateLevelSelectMenu(LevelSO _unused)
     {
+        CloseTutorialMenu();
         GameManager.i.PauseGame();
         keyImage.SetActive(false);
         plasmaObject.SetActive(false);
         levelSelectMenu.SetActive(true);
-        if(GameManager.i.GetGameHasStarted())
-            levelSelectMenu.GetComponent<LevelSelectManager>().RefreshMenu();
-        else
+        if(!GameManager.i.GetGameHasStarted())
             levelSelectMenu.GetComponent<LevelSelectManager>().Initialize();
         LevelButtonManager.OnLevelSelected += DeactivateLevelSelectMenu;
     }
@@ -141,5 +143,19 @@ public class UIController : MonoBehaviour
         SceneController.ExitGame();
     }
     #endregion
+    #region Tutorials
+    public void OpenTutorialMenu(string _menuName)
+    {
+        tutorialMenu.SetActive(true);
+        _currentTutorial = _menuName;
+        tutorialMenu.transform.Find(_menuName).gameObject.SetActive(true);
+    }
 
+    public void CloseTutorialMenu()
+    {
+        if(_currentTutorial != "") tutorialMenu.transform.Find(_currentTutorial).gameObject.SetActive(false);
+        tutorialMenu.SetActive(false);
+        _currentTutorial = "";
+    }
+    #endregion
 }

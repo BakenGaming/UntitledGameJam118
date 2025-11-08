@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479c520ecfce8754d9ab24ca615673e7, type: 3}
   m_Name: Tutorial_4
   m_EditorClassIdentifier: Assembly-CSharp::LevelSO
-  levelName: 'Tutorial Four : Keys'
+  levelName: 'Tutorial Four: Keys'
+  tutorialName: KEY
   levelPrefab: {fileID: 1776868569416411234, guid: bb82bee224ebb4549ba4ca47063159c8, type: 3}
+  nextLevel: {fileID: 11400000, guid: 7a6be9d615017dc4a956c93ed67ec196, type: 2}
   difficultyRating: 0
   isTutorial: 1

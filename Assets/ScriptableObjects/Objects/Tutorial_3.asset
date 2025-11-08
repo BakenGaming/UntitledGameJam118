@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479c520ecfce8754d9ab24ca615673e7, type: 3}
   m_Name: Tutorial_3
   m_EditorClassIdentifier: Assembly-CSharp::LevelSO
-  levelName: 'Tutorial Three : Switches'
+  levelName: 'Tutorial Three: Switches'
+  tutorialName: SWITCH
   levelPrefab: {fileID: 3242340792357371505, guid: 15de5ccdb4a91894b8da849003970dee, type: 3}
+  nextLevel: {fileID: 11400000, guid: 3009c4c584ff8da458af714303660da1, type: 2}
   difficultyRating: 0
   isTutorial: 1

@@ -29,6 +29,9 @@ public class GameAssets : MonoBehaviour
     public Sprite levelSelectedBG;
     public GameObject pfLevelButton;
     public Sprite[] difficultyMarkers;
+    public Sprite lockedImage;
+    public Sprite unlockedImage;
+    public Sprite completeImage;
   
     public SoundAudioClip[] audioClipArray;
     public MusicAudioClip[] musicTrackArray;

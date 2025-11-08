@@ -53,7 +53,6 @@ public class DoorHandler : MonoBehaviour
         {
             UIController.i.CloseTextInformation();
             collision.GetComponent<IInputHandler>().SetIsAtKeyDoor(false);
-            GetComponent<BoxCollider2D>().enabled = false;
             _activeHandler = null;
         }
     }

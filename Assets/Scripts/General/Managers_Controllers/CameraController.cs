@@ -36,6 +36,6 @@ public class CameraController : MonoBehaviour
         mainCam.transform.position = newPosition;
     }
 
-    private void DisableCameraFollow(){ cameraActive = false; }
+    private void DisableCameraFollow(LevelSO _unused){ cameraActive = false; }
 
 }

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479c520ecfce8754d9ab24ca615673e7, type: 3}
   m_Name: Tutorial_5
   m_EditorClassIdentifier: Assembly-CSharp::LevelSO
-  levelName: 'Tutorial Five : Teleporters'
+  levelName: 'Tutorial Five: Teleporters'
+  tutorialName: TELEPORT
   levelPrefab: {fileID: 9106795487052662981, guid: 71fd1ccaa59cfe0418423799d1504bd8, type: 3}
+  nextLevel: {fileID: 11400000}
   difficultyRating: 0
   isTutorial: 1

@@ -3,15 +3,18 @@ using UnityEngine;
 
 public class LevelExitHandler : MonoBehaviour
 {
-    public static event Action OnExitReached;
+    public static event Action<LevelSO> OnExitReached;
     [SerializeField] private GameObject[] exitPortalSections;
     private IInputHandler _activeHandler;
     private float rotationSpeed = 150f;
     private bool rotationStarted;
+    private LevelSO thisLevel;
     void Awake()
     {
         StartRotation();
     }
+
+    public void SetThisLevel(LevelSO _level){thisLevel = _level;}
 
     private void StartRotation()
     {
@@ -47,6 +50,6 @@ public class LevelExitHandler : MonoBehaviour
 
     public void ExitLevel()
     {
-        OnExitReached?.Invoke();
+        OnExitReached?.Invoke(thisLevel);
     }
 }

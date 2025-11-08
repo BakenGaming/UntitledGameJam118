@@ -9,13 +9,24 @@ public class LevelUnlockSystem
         levelLock = new Dictionary<string, bool>();
         foreach(LevelSO level in levels)
         {
-            levelLock.Add(level.name, false);
+            levelLock.Add(level.levelName, false);
         }
-        levelLock[levels[0].name] = true;
+
+        foreach(string _key in levelLock.Keys)
+        {
+            Debug.Log(_key);
+        }
+
+        //levelLock[levels[0].name] = true;
     }
 
     public void UnlockLevel(string _name, bool _unlocked)
     {
        levelLock[_name] = _unlocked; 
+    }
+
+    public bool CheckLevelLock(string _name)
+    {
+        return levelLock[_name];
     }
 }

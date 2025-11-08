@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479c520ecfce8754d9ab24ca615673e7, type: 3}
   m_Name: Tutorial_2
   m_EditorClassIdentifier: Assembly-CSharp::LevelSO
-  levelName: 'Tutorial Two : Plasma'
+  levelName: 'Tutorial Two: Plasma'
+  tutorialName: PLASMA
   levelPrefab: {fileID: 7941857010335784291, guid: 22615ee3985b61843a4ea7de7ff3ad6a, type: 3}
+  nextLevel: {fileID: 11400000, guid: 4d797e7d3cdef9449ac1e8db8678c56d, type: 2}
   difficultyRating: 0
   isTutorial: 1

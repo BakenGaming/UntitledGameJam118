@@ -15173,7 +15173,7 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
 --- !u!1001 &4695536001952969656
 PrefabInstance:
   m_ObjectHideFlags: 0
