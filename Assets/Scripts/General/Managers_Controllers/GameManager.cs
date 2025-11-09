@@ -58,11 +58,17 @@ public class GameManager : MonoBehaviour
         gameUIController.PrepareUI();
         PlayerInputController_TopDown.OnPauseGame += HandlePauseGame;
         PlayerInputController_TopDown.OnUnpauseGame += HandleUnpauseGame;
+        int track = Random.Range(0, GameAssets.i.musicTrackArray.Length);
+        SoundManager.Music newMusic = GameAssets.i.musicTrackArray[track].music;
+        Debug.Log($"[0,{GameAssets.i.musicTrackArray.Length}] = {track} >> {newMusic}");
+        SoundManager.PlayMusic(newMusic);
+        SoundManager.AdjustVolumeDown();
         UnPauseGame();
     }
 
     private void HandleLevelExit(LevelSO _level)
     {
+        SoundManager.StopMusic();
         Destroy(activeLevel.gameObject);
         Destroy(playerGO.gameObject);
     }

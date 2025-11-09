@@ -9,12 +9,14 @@ public static class SoundManager
     public static event Action<GameObject> OnMusicPlayed;
     public enum Sound
     { 
-        uiClick, playerShoot, playerDie, enemyTakeDamage, collect
+        uiClick, uiHover, uiLocked, dropPlasma, pickupPlasma, unlockDoor, pickupKey, activateSwitch, teleport,
+        levelEnd
     }
 
     public enum Music
     { 
-        defaultMusic
+        track1, track2, track3, track4, track5, track6, track7, track8, track9, track10,
+        track11, track12, track13, track14, track15 
     }
 
     private static Dictionary<Sound, float> soundTimerDictionary;
@@ -138,4 +140,6 @@ public static class SoundManager
 
     public static void IncreaseTempo(AudioSource music) { music.pitch = 1.5f; }
     public static void ResetTempo(AudioSource music) { music.pitch = 1f; }
+    public static void StopMusic(){currentMusicObject.GetComponent<AudioSource>().Stop();}
+    public static void AdjustVolumeDown(){currentMusicObject.GetComponent<AudioSource>().volume = .25f;}
 }

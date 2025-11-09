@@ -35,7 +35,8 @@ public class SwitchHandler : MonoBehaviour
         for (int i = 0; i < activationSprites.Length; i++)
         {
             _sr.sprite = activationSprites[i];
-            yield return new WaitForSeconds(.3f);
+            SoundManager.PlaySound(SoundManager.Sound.activateSwitch);
+            yield return new WaitForSeconds(.4f);
         }
         _activeHandler.CancelSwitchHandler();
         _doorToControl.SwitchActivated();

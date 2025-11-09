@@ -12,6 +12,7 @@ public class PlasmaHandler : MonoBehaviour, IPickupHandler
         if(_activeHandler != null)
         {
             //_activeHandler.ObjectPickupHandler();
+            SoundManager.PlaySound(SoundManager.Sound.pickupPlasma);
             Destroy(gameObject);
         }
     }

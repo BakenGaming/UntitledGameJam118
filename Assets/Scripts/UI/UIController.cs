@@ -9,17 +9,26 @@ public class UIController : MonoBehaviour
     #region Setup and Variables
     private static UIController _i;
     public static UIController i { get { return _i; } }
-    [SerializeField] private GameObject pauseMenu;
+    [Header("MENUS")]
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject creditsScreen;
+    [SerializeField] private GameObject mainMenuButtons;
+    [SerializeField] private GameObject creditsButton;
+    [SerializeField] private GameObject titleGraphic;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject openingScene;
     [SerializeField] private GameObject levelSelectMenu;
+    [SerializeField] private bool isMainMenu;
+
+    [Header("UI PANELS")]
     [SerializeField] private GameObject textInformationPanel;
     [SerializeField] private TextMeshProUGUI textInformationPanelText;
     [SerializeField] private GameObject tutorialMenu;
+    
+    [Header("GAME UI")]
     [SerializeField] private GameObject plasmaObject;
     [SerializeField] private TextMeshProUGUI plasmaCount;
     [SerializeField] private GameObject keyImage;
-    [SerializeField] private bool isMainMenu;
     private string _currentTutorial="";
 
     private void OnEnable() 
@@ -35,14 +44,22 @@ public class UIController : MonoBehaviour
     }
     public void Initialize()
     {
-        //GetComponent<VolumeSettings>().Initialize();        
-        //else creditsScreen.SetActive(false);
-        //settingsMenu.SetActive(false);
-        
-        if(!isMainMenu) pauseMenu.SetActive(false);
+        if(isMainMenu)
+        {
+            GetComponent<VolumeSettings>().Initialize();        
+            settingsMenu.SetActive(false);
+            creditsScreen.SetActive(false);
+            openingScene.SetActive(false);
+            creditsButton.SetActive(true);
+            mainMenuButtons.SetActive(true);
+            titleGraphic.SetActive(true);
+        }
+
         _i = this;
+        
         if(!isMainMenu)
         {
+            pauseMenu.SetActive(false);
             CloseTutorialMenu();
             CloseTextInformation();
             ActivateLevelSelectMenu(null);
@@ -63,19 +80,28 @@ public class UIController : MonoBehaviour
     public void OpenSettingsMenu()
     {
         settingsMenu.SetActive(true);
+        creditsButton.SetActive(false);
+        mainMenuButtons.SetActive(false);
         GetComponent<VolumeSettings>().SettingsMenuOpened();
     }
     public void CloseSettingsMenu()
     {
         settingsMenu.SetActive(false);
+        creditsButton.SetActive(true);
+        mainMenuButtons.SetActive(true);
+
     }
     public void OpenCreditsScreen()
     {
+        creditsButton.SetActive(false);
+        mainMenuButtons.SetActive(false);
         creditsScreen.SetActive(true);
     }
     public void CloseCreditsScreen()
     {
         creditsScreen.SetActive(false);
+        creditsButton.SetActive(true);
+        mainMenuButtons.SetActive(true);
     }
     private void ActivateLevelSelectMenu(LevelSO _unused)
     {
@@ -124,6 +150,14 @@ public class UIController : MonoBehaviour
     }
     #endregion
     #region Menu Actions
+    public void StartOpeningScene()
+    {
+        creditsButton.SetActive(false);
+        mainMenuButtons.SetActive(false);
+        titleGraphic.SetActive(false);
+        openingScene.SetActive(true);
+        OpeningDialogHandler.i.StartDialog();
+    }
     public void StartGame()
     {
         SceneController.StartGame();

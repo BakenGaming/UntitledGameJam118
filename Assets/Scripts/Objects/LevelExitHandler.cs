@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class LevelExitHandler : MonoBehaviour
@@ -50,6 +51,13 @@ public class LevelExitHandler : MonoBehaviour
 
     public void ExitLevel()
     {
+        SoundManager.PlaySound(SoundManager.Sound.levelEnd);
+        StartCoroutine("DelayTime");
+    }
+
+    IEnumerator DelayTime()
+    {
+        yield return new WaitForSecondsRealtime(.75f);
         OnExitReached?.Invoke(thisLevel);
     }
 }

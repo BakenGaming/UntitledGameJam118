@@ -95,6 +95,7 @@ public class PlayerInputController_TopDown : MonoBehaviour, IInputHandler
         }
         else if(isAtTeleporter)
         {
+            SoundManager.PlaySound(SoundManager.Sound.teleport);
             _activeTeleportHandler.Teleport();
             GameManager.i.PauseGame();
         }
@@ -104,6 +105,7 @@ public class PlayerInputController_TopDown : MonoBehaviour, IInputHandler
             GameObject newPlasma = Instantiate (GameAssets.i.pfPlasma, transform.position, Quaternion.identity);
             handler.UpdateLightMaskSize(false);
             plasmaCount--;
+            SoundManager.PlaySound(SoundManager.Sound.dropPlasma);
             OnUpdatePlasmaCount?.Invoke(plasmaCount);
         }
     }
@@ -111,7 +113,12 @@ public class PlayerInputController_TopDown : MonoBehaviour, IInputHandler
     {
         if(_pickupObject != null)
         {
-            if(plasmaObject) { handler.UpdateLightMaskSize(true); plasmaCount++; OnUpdatePlasmaCount?.Invoke(plasmaCount);}
+            if(plasmaObject) 
+            { 
+                handler.UpdateLightMaskSize(true); 
+                plasmaCount++; 
+                OnUpdatePlasmaCount?.Invoke(plasmaCount);
+            }
             _pickupObject.GetComponent<IPickupHandler>().HandlePickup();
         }
     }

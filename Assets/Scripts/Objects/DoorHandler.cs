@@ -16,14 +16,23 @@ public class DoorHandler : MonoBehaviour
     }
     public void SwitchActivated()
     {
-        if(!isKeyDoor) _doorObject.SetActive(false);
+        if(!isKeyDoor)
+        {
+            _doorObject.SetActive(false);
+            SoundManager.PlaySound(SoundManager.Sound.unlockDoor);
+        }
     }
 
     public void Unlock(bool _isUsed)
     {
         if(!_isUsed) return;
 
-        if (isKeyDoor) { _doorObject.SetActive(false); GetComponent<BoxCollider2D>().enabled = false; }
+        if (isKeyDoor) 
+        { 
+            SoundManager.PlaySound(SoundManager.Sound.unlockDoor);
+            _doorObject.SetActive(false); 
+            GetComponent<BoxCollider2D>().enabled = false; 
+        }
     }
 
     public void LevelReset()

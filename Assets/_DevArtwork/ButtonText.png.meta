@@ -435,7 +435,7 @@ TextureImporter:
         width: 435
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -457,7 +457,7 @@ TextureImporter:
         width: 435
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -479,7 +479,7 @@ TextureImporter:
         width: 520
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -501,7 +501,7 @@ TextureImporter:
         width: 520
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -510,6 +510,94 @@ TextureImporter:
       bones: []
       spriteID: 4e7843a429ca9314db444cb6fad11ba7
       internalID: -302584712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Skip_H
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 464
+        width: 435
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 862281486fc9ae1459c4654237b3b433
+      internalID: 983810916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Skip_W
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 349
+        width: 435
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bce68e1f39bd13141b4e048f67d5e15f
+      internalID: 678726799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Close_H
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 232
+        width: 435
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 217c216a411310940b50de51a5024749
+      internalID: -1263447548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Close_W
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 116
+        width: 435
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13190da27c6bf7d4980ad14d49e7201b
+      internalID: -322416853
       vertices: []
       indices: 
       edges: []
@@ -540,6 +628,8 @@ TextureImporter:
       ButtonText_5: -2101772135
       ButtonText_7: 171136523
       ButtonText_9: 1150939715
+      Button_Close_H: -1263447548
+      Button_Close_W: -322416853
       Button_Credits_H: -568161211
       Button_Credits_W: -728542400
       Button_Exit_H: 424609855
@@ -550,6 +640,8 @@ TextureImporter:
       Button_Resume_W: 6485138537580808889
       Button_Settings_H: 785390224
       Button_Settings_W: 1308322089
+      Button_Skip_H: 983810916
+      Button_Skip_W: 678726799
       Button_Start_H: -6429939275512705550
       Button_Start_W: -5798564615535947216
   mipmapLimitGroupName: 

@@ -31,6 +31,9 @@ public class LevelButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerE
             GameManager.i.Initialize(level);
             OnLevelSelected?.Invoke();
         }
+        else SoundManager.PlaySound(SoundManager.Sound.uiLocked);
+
+        
     }
 
     public void UnlockLevel()
@@ -51,6 +54,7 @@ public class LevelButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        SoundManager.PlaySound(SoundManager.Sound.uiClick);
         levelButton.GetComponent<Image>().sprite = GameAssets.i.levelSelectedBG;
         if(isLocked) _lsManager.ShowLockedText("Locked", "9E2835");
         if(isComplete) _lsManager.ShowLockedText("Complete", "63C64D");
