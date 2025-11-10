@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 479c520ecfce8754d9ab24ca615673e7, type: 3}
-  m_Name: Tutorial_5
+  m_Name: Level2
   m_EditorClassIdentifier: Assembly-CSharp::LevelSO
-  levelName: 'Tutorial Five: Teleporters'
-  tutorialName: TELEPORT
-  levelPrefab: {fileID: 9106795487052662981, guid: 71fd1ccaa59cfe0418423799d1504bd8, type: 3}
-  nextLevel: {fileID: 11400000, guid: 69d973e96a3e8ba4f9189fadcaf670dc, type: 2}
+  levelName: 'Level Two: Twist'
+  tutorialName: 
+  levelPrefab: {fileID: 8820175939237567732, guid: ac063bd1f19f4ed4ab04504881e3cdf0, type: 3}
+  nextLevel: {fileID: 11400000, guid: 86a120ad316c27a4c9d5dbe6f0803a3d, type: 2}
   difficultyRating: 0
-  isTutorial: 1
+  isTutorial: 0

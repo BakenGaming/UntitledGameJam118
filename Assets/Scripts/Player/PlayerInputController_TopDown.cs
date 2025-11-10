@@ -212,5 +212,6 @@ public class PlayerInputController_TopDown : MonoBehaviour, IInputHandler
     #endregion
 
     #region Checks
+    public bool GetHasKey(){return hasKey;}
     #endregion
 }

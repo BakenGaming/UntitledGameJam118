@@ -54,4 +54,13 @@ public class LevelSelectManager : MonoBehaviour
         lockedText.GetComponent<TextMeshProUGUI>().color = UtilsClass.GetColorFromString(_color);
     }
     public void HideLockedText(){lockedText.SetActive(false);}
+
+    //TESTING ONLY REMOVE BEFORE GAME IS LIVE
+    public void UnlockAllLevels()
+    {
+        foreach(LevelButtonManager level in levelButtons)
+        {
+            level.UnlockLevel();
+        }
+    }
 }

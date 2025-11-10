@@ -20,6 +20,7 @@ public class DoorHandler : MonoBehaviour
         {
             _doorObject.SetActive(false);
             SoundManager.PlaySound(SoundManager.Sound.unlockDoor);
+            GetComponent<BoxCollider2D>().enabled = false;
         }
     }
 
@@ -46,23 +47,24 @@ public class DoorHandler : MonoBehaviour
         _activeHandler = collision.GetComponent<IInputHandler>();
         if(_activeHandler != null)
         {
-            Debug.Log("Handler");
             if(isKeyDoor)
             {
-                Debug.Log("Is Key");
-                UIController.i.OpenTextInformation("Space to Unlock");                
+                if(_activeHandler.GetHasKey())
+                    UIController.i.OpenTextInformation("Space to Unlock");                
+                else
+                    UIController.i.OpenTextInformation("Find the Key");    
                 _activeHandler.SetIsAtKeyDoor(true);
             }
+            else
+                UIController.i.OpenTextInformation("Find the Switch");
         }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(isKeyDoor)
-        {
-            UIController.i.CloseTextInformation();
-            collision.GetComponent<IInputHandler>().SetIsAtKeyDoor(false);
-            _activeHandler = null;
-        }
+        UIController.i.CloseTextInformation();
+        if(isKeyDoor) collision.GetComponent<IInputHandler>().SetIsAtKeyDoor(false);
+        _activeHandler = null;
+
     }
 }

@@ -13,6 +13,7 @@ public class OpeningDialogHandler : MonoBehaviour
     [SerializeField] private GameObject fastForwardButton;
     [SerializeField] private GameObject startButton;
     [SerializeField] private float dialogSpeed;
+    
     void Awake()
     {
         _i = this;
@@ -45,7 +46,7 @@ public class OpeningDialogHandler : MonoBehaviour
         foreach (char c in dialogToDisplay.text.ToCharArray())
         {
             dialogWindow.text += c;
-            //SoundManager.PlaySound(SoundManager.Sound.textSound);
+            SoundManager.PlaySound(SoundManager.Sound.textSound);
             yield return new WaitForSeconds(dialogSpeed);
             
         }

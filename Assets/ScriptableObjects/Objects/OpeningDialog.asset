@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: OpeningDialog
   m_EditorClassIdentifier: Assembly-CSharp::DialogData
   dialogName: Opening Dialog
-  text: This is a test of the dialog system to see how fast it displays text
+  text: A journey to the ethereal plane begins with a test of will.  One must travel
+    through the mazes of Edenton and pass the test of the Gods o be accepted into
+    the neverending paradise of the afterlife.  Are you up to the challenge?

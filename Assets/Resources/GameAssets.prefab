@@ -100,6 +100,10 @@ MonoBehaviour:
     sound: 9
     audioClip: {fileID: 8300000, guid: 16d37fd3d91da45408b88806bc6fa69e, type: 3}
     volume: 0.4
+  - mixer: {fileID: -5333076078065036893, guid: 10961929dd84ed54fa90b7beed104eb5, type: 2}
+    sound: 10
+    audioClip: {fileID: 8300000, guid: 7f8113c6aee4dfd4ba1720261de9893f, type: 3}
+    volume: 0.4
   musicTrackArray:
   - mixer: {fileID: -8160735394874381396, guid: 10961929dd84ed54fa90b7beed104eb5, type: 2}
     music: 0

@@ -11,12 +11,6 @@ public class LevelUnlockSystem
         {
             levelLock.Add(level.levelName, false);
         }
-
-        foreach(string _key in levelLock.Keys)
-        {
-            Debug.Log(_key);
-        }
-
         //levelLock[levels[0].name] = true;
     }
 

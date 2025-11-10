@@ -21,6 +21,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private bool isMainMenu;
 
     [Header("UI PANELS")]
+    [SerializeField] private GameObject fadeScreen;
+    [SerializeField] private GameObject levelName;
     [SerializeField] private GameObject textInformationPanel;
     [SerializeField] private TextMeshProUGUI textInformationPanelText;
     [SerializeField] private GameObject tutorialMenu;
@@ -39,20 +41,25 @@ public class UIController : MonoBehaviour
     {
         PlayerInputController_TopDown.OnUpdatePlasmaCount -= UpdateGameUI;
         PlayerInputController_TopDown.OnKeyAction -= UpdateKeyUI;
-        LevelExitHandler.OnExitReached -= ActivateLevelSelectMenu;
-        LevelButtonManager.OnLevelSelected -= DeactivateLevelSelectMenu;
+        LevelExitHandler.OnExitReached -= FadeToBlack;
+        FadeManager.OnFadeToBlackComplete -= ActivateLevelSelectMenu;
+        FadeManager.OnFadeFromBlackComplete -= DeactivateLevelSelectMenu;
     }
     public void Initialize()
     {
+        settingsMenu.SetActive(false);
+        GetComponent<VolumeSettings>().Initialize(); 
+
         if(isMainMenu)
         {
-            GetComponent<VolumeSettings>().Initialize();        
-            settingsMenu.SetActive(false);
             creditsScreen.SetActive(false);
             openingScene.SetActive(false);
             creditsButton.SetActive(true);
             mainMenuButtons.SetActive(true);
             titleGraphic.SetActive(true);
+            int track = UnityEngine.Random.Range(0, GameAssets.i.musicTrackArray.Length);
+            SoundManager.Music newMusic = GameAssets.i.musicTrackArray[track].music;
+            SoundManager.PlayMusic(newMusic);
         }
 
         _i = this;
@@ -62,7 +69,7 @@ public class UIController : MonoBehaviour
             pauseMenu.SetActive(false);
             CloseTutorialMenu();
             CloseTextInformation();
-            ActivateLevelSelectMenu(null);
+            ActivateLevelSelectMenu();
         }
     }
     #endregion
@@ -80,44 +87,84 @@ public class UIController : MonoBehaviour
     public void OpenSettingsMenu()
     {
         settingsMenu.SetActive(true);
-        creditsButton.SetActive(false);
-        mainMenuButtons.SetActive(false);
+        if(isMainMenu)
+        {
+            creditsButton.SetActive(false);
+            mainMenuButtons.SetActive(false);
+            titleGraphic.SetActive(false);
+        }
         GetComponent<VolumeSettings>().SettingsMenuOpened();
     }
     public void CloseSettingsMenu()
     {
         settingsMenu.SetActive(false);
-        creditsButton.SetActive(true);
-        mainMenuButtons.SetActive(true);
-
+        if(isMainMenu)
+        {
+            creditsButton.SetActive(true);
+            mainMenuButtons.SetActive(true);
+            titleGraphic.SetActive(true);
+        }
     }
     public void OpenCreditsScreen()
     {
-        creditsButton.SetActive(false);
-        mainMenuButtons.SetActive(false);
+        if(isMainMenu)
+        {
+            creditsButton.SetActive(false);
+            mainMenuButtons.SetActive(false);
+        }
         creditsScreen.SetActive(true);
     }
     public void CloseCreditsScreen()
     {
         creditsScreen.SetActive(false);
-        creditsButton.SetActive(true);
-        mainMenuButtons.SetActive(true);
+        if(isMainMenu)
+        {
+            creditsButton.SetActive(true);
+            mainMenuButtons.SetActive(true);
+        }
     }
-    private void ActivateLevelSelectMenu(LevelSO _unused)
+    private void ActivateLevelSelectMenu()
     {
+        fadeScreen.SetActive(false);
         CloseTutorialMenu();
         GameManager.i.PauseGame();
         keyImage.SetActive(false);
         plasmaObject.SetActive(false);
+        levelName.SetActive(false);
         levelSelectMenu.SetActive(true);
+        int track = UnityEngine.Random.Range(0, GameAssets.i.musicTrackArray.Length);
+        SoundManager.Music newMusic = GameAssets.i.musicTrackArray[track].music;
+        SoundManager.PlayMusic(newMusic);
         if(!GameManager.i.GetGameHasStarted())
             levelSelectMenu.GetComponent<LevelSelectManager>().Initialize();
         LevelButtonManager.OnLevelSelected += DeactivateLevelSelectMenu;
     }
-    private void DeactivateLevelSelectMenu()
+    private void DeactivateLevelSelectMenu(LevelSO _level)
     {
+        FadeFromBlack();
         plasmaObject.SetActive(true);
         levelSelectMenu.SetActive(false);
+        levelName.SetActive(true);
+        levelName.GetComponent<TextMeshProUGUI>().text = _level.levelName;
+    }
+
+    private void FadeToBlack(LevelSO _level)
+    {
+        Debug.Log("Fade To Black");
+        fadeScreen.SetActive(true);
+        fadeScreen.GetComponent<FadeManager>().InitiateFade(false);
+    }
+    private void FadeFromBlack() 
+    {
+        Debug.Log("Fade from Black");
+        fadeScreen.SetActive(true);
+        fadeScreen.GetComponent<FadeManager>().InitiateFade(true);
+    }
+    private void FadeComplete(LevelSO _unused)
+    {
+        Debug.Log("Fade Complete"); 
+        fadeScreen.SetActive(false); 
+        GameManager.i.UnPauseGame();
     }
     #endregion
     #region GameUIRelated
@@ -125,7 +172,9 @@ public class UIController : MonoBehaviour
     {
         PlayerInputController_TopDown.OnUpdatePlasmaCount += UpdateGameUI;
         PlayerInputController_TopDown.OnKeyAction += UpdateKeyUI;
-        LevelExitHandler.OnExitReached += ActivateLevelSelectMenu;
+        LevelExitHandler.OnExitReached += FadeToBlack;
+        FadeManager.OnFadeToBlackComplete += ActivateLevelSelectMenu;
+        FadeManager.OnFadeFromBlackComplete += FadeComplete;
     }
     private void UpdateGameUI(int _count)
     {

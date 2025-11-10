@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
 
     public void Initialize(LevelSO _level)
     {
+        PauseGame();
         activeLevel = Instantiate(_level.levelPrefab, transform.position, Quaternion.identity);
         activeLevel.transform.Find("Walls").GetComponent<TilemapRenderer>().maskInteraction 
                 = SpriteMaskInteraction.VisibleInsideMask;
@@ -60,10 +61,8 @@ public class GameManager : MonoBehaviour
         PlayerInputController_TopDown.OnUnpauseGame += HandleUnpauseGame;
         int track = Random.Range(0, GameAssets.i.musicTrackArray.Length);
         SoundManager.Music newMusic = GameAssets.i.musicTrackArray[track].music;
-        Debug.Log($"[0,{GameAssets.i.musicTrackArray.Length}] = {track} >> {newMusic}");
         SoundManager.PlayMusic(newMusic);
         SoundManager.AdjustVolumeDown();
-        UnPauseGame();
     }
 
     private void HandleLevelExit(LevelSO _level)

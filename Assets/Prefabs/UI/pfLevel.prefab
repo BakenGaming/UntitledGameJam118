@@ -277,8 +277,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Tutorial : Movement'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a1b9584f433209c4caa981164d74629b, type: 2}
-  m_sharedMaterial: {fileID: -5816688258309756445, guid: a1b9584f433209c4caa981164d74629b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 34ec39ef242498f4a8f2f15e7c787cbd, type: 2}
+  m_sharedMaterial: {fileID: -8491755797648817668, guid: 34ec39ef242498f4a8f2f15e7c787cbd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -302,10 +302,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11.55
-  m_fontSizeBase: 24
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 1
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -40
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 4.173063, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -429,7 +429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -12.1}
+  m_AnchoredPosition: {x: 0, y: -9.7}
   m_SizeDelta: {x: 59.1648, y: 17.7495}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4600288455922193886

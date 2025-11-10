@@ -7,6 +7,15 @@ public class PlasmaHandler : MonoBehaviour, IPickupHandler
     public event Action OnUnAbleToPickup;
     private IInputHandler _activeHandler;
 
+    void Awake()
+    {
+        LevelExitHandler.OnExitReached += PickupAll;
+    }
+    void OnDisable()
+    {
+        LevelExitHandler.OnExitReached -= PickupAll;
+    }
+    private void PickupAll(LevelSO _unused){Destroy(gameObject);}
     public void HandlePickup()
     {
         if(_activeHandler != null)

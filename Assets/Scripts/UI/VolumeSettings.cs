@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -7,6 +8,8 @@ using UnityEngine.UI;
 public class VolumeSettings : MonoBehaviour
 {
     [SerializeField] private AudioMixer mainMixer;
+    [SerializeField] private AudioMixerGroup SFX;
+    [SerializeField] private AudioMixerGroup music;
     [SerializeField] private Slider masterVolumeSlider;
     [SerializeField] private Slider musicVolumeSlider;
     [SerializeField] private Slider SFXVolumeSlider;
@@ -14,6 +17,7 @@ public class VolumeSettings : MonoBehaviour
 
     public void Initialize()
     {
+        SoundManager.Initialize(SFX, music);
         if(PlayerPrefs.HasKey("MasterVolume")) InitialVolumeLoad();
     }
 
@@ -39,7 +43,6 @@ public class VolumeSettings : MonoBehaviour
         sfxLoad = PlayerPrefs.GetFloat("SFXVolume");
         mainMixer.SetFloat("SFX", Mathf.Log10(sfxLoad)*20f); 
     }
-
     public void SetMasterVolume()
     {
         float volume = masterVolumeSlider.value;

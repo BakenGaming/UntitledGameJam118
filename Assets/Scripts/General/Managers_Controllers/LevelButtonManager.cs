@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 
 public class LevelButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public static event Action OnLevelSelected;
+    public static event Action<LevelSO> OnLevelSelected;
     private LevelSelectManager _lsManager;
-    private GameObject levelButton;
+    private GameObject levelButton, levelDifficulty, levelName, levelImage;
     private LevelSO level;
     private bool isLocked, isComplete;
     public void Initialize(LevelSO _level, LevelSelectManager _ls)
@@ -17,9 +17,12 @@ public class LevelButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerE
         level = _level;
         levelButton = transform.Find("Button").gameObject;
         levelButton.GetComponent<Image>().sprite = GameAssets.i.levelSelectBG;
-        levelButton.transform.Find("LevelName").GetComponent<TextMeshProUGUI>().text = _level.levelName;
-        levelButton.transform.Find("Difficulty").GetComponent<Image>().sprite = GameAssets.i.difficultyMarkers[_level.difficultyRating];
-        levelButton.transform.Find("LevelImage").GetComponent<Image>().sprite = GameAssets.i.lockedImage;
+        levelImage = levelButton.transform.Find("LevelImage").gameObject;
+        levelImage.GetComponent<Image>().sprite = GameAssets.i.lockedImage;
+        levelDifficulty = levelButton.transform.Find("Difficulty").gameObject;
+        levelDifficulty.SetActive(false);
+        levelName = levelButton.transform.Find("LevelName").gameObject;
+        levelName.SetActive(false);
         isLocked = true;
         isComplete = false;
     } 
@@ -29,23 +32,24 @@ public class LevelButtonManager : MonoBehaviour, IPointerEnterHandler, IPointerE
         if(!isLocked)
         {
             GameManager.i.Initialize(level);
-            OnLevelSelected?.Invoke();
+            OnLevelSelected?.Invoke(level);
         }
         else SoundManager.PlaySound(SoundManager.Sound.uiLocked);
-
-        
     }
-
     public void UnlockLevel()
     {
-        levelButton.transform.Find("LevelImage").GetComponent<Image>().sprite = GameAssets.i.unlockedImage;
+        levelImage.GetComponent<Image>().sprite = GameAssets.i.unlockedImage;
+        levelName.SetActive(true);
+        levelName.GetComponent<TextMeshProUGUI>().text = level.levelName;
+        levelDifficulty.SetActive(true);
+        levelDifficulty.GetComponent<Image>().sprite = GameAssets.i.difficultyMarkers[level.difficultyRating];
         isLocked = false;
     }
 
     public void CompleteLevel()
     {
         Debug.Log("Level Completed");
-        levelButton.transform.Find("LevelImage").GetComponent<Image>().sprite = GameAssets.i.completeImage;
+        levelImage.GetComponent<Image>().sprite = GameAssets.i.completeImage;
         isComplete = true;
     }
 

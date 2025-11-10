@@ -10,7 +10,7 @@ public static class SoundManager
     public enum Sound
     { 
         uiClick, uiHover, uiLocked, dropPlasma, pickupPlasma, unlockDoor, pickupKey, activateSwitch, teleport,
-        levelEnd
+        levelEnd, textSound
     }
 
     public enum Music
@@ -23,10 +23,13 @@ public static class SoundManager
     private static GameObject currentMusicObject;
     private static GameObject currentSoundObject;
     private static AudioSource currentAudioSource;
+    private static AudioMixerGroup mainMixer, SFXMixer, musicMixer;
 
-    public static void Initialize()
+    public static void Initialize(AudioMixerGroup _SFX, AudioMixerGroup _music)
     {
         soundTimerDictionary = new Dictionary<Sound, float>();
+        SFXMixer = _SFX;
+        musicMixer = _music;
         //soundTimerDictionary[Sound.playerMove] = 0;
     }
     public static void PlaySound(Sound sound)
@@ -40,6 +43,7 @@ public static class SoundManager
             } 
             currentAudioSource.PlayOneShot(GetAudioClip(sound));
             currentAudioSource.volume = GetClipVolume(sound);
+            currentAudioSource.outputAudioMixerGroup = SFXMixer;
         }
     }
 
@@ -53,6 +57,7 @@ public static class SoundManager
             musicSource.loop = true;
             musicSource.Play();
             musicSource.volume = GetMusicVolume(currentMusic);
+            musicSource.outputAudioMixerGroup = musicMixer;
         }
         else
         {
@@ -60,7 +65,6 @@ public static class SoundManager
             currentMusicObject.GetComponent<AudioSource>().clip = GetMusicTrack(currentMusic);
             currentMusicObject.GetComponent<AudioSource>().Play();
             currentMusicObject.GetComponent<AudioSource>().volume = GetMusicVolume(currentMusic);
-
         }
         OnMusicPlayed?.Invoke(currentMusicObject);
     }
@@ -142,4 +146,5 @@ public static class SoundManager
     public static void ResetTempo(AudioSource music) { music.pitch = 1f; }
     public static void StopMusic(){currentMusicObject.GetComponent<AudioSource>().Stop();}
     public static void AdjustVolumeDown(){currentMusicObject.GetComponent<AudioSource>().volume = .25f;}
+    public static AudioSource GetCurrentMusic(){return currentMusicObject.GetComponent<AudioSource>();}
 }

@@ -13,5 +13,6 @@ public interface IInputHandler
     public void CancelExitHandler();
     public void SetIsAtTeleporter(bool _isAtExit, TeleportHandler _handler);
     public void CancelTeleportHandler();
+    public bool GetHasKey();
     public void MovePlayer(GameObject _location);
 }

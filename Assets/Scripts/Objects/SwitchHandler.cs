@@ -40,5 +40,6 @@ public class SwitchHandler : MonoBehaviour
         }
         _activeHandler.CancelSwitchHandler();
         _doorToControl.SwitchActivated();
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 }
