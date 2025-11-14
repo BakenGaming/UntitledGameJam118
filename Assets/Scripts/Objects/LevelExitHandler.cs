@@ -5,6 +5,7 @@ using UnityEngine;
 public class LevelExitHandler : MonoBehaviour
 {
     public static event Action<LevelSO> OnExitReached;
+    public static event Action OnFinalLevelCompleted;
     [SerializeField] private GameObject[] exitPortalSections;
     private IInputHandler _activeHandler;
     private float rotationSpeed = 150f;
@@ -58,6 +59,7 @@ public class LevelExitHandler : MonoBehaviour
     IEnumerator DelayTime()
     {
         yield return new WaitForSecondsRealtime(.75f);
-        OnExitReached?.Invoke(thisLevel);
+        if(thisLevel.isFinalLevel) OnFinalLevelCompleted?.Invoke();
+        else OnExitReached?.Invoke(thisLevel);
     }
 }

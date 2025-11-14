@@ -9,4 +9,5 @@ public class LevelSO : ScriptableObject
     public LevelSO nextLevel;
     public int difficultyRating;
     public bool isTutorial;
+    public bool isFinalLevel;
 }

@@ -15,6 +15,6 @@ MonoBehaviour:
   levelName: 'Level Six: False Clues'
   tutorialName: 
   levelPrefab: {fileID: 7289988418116847333, guid: ce2e421244af6ef468eaad276f08adb2, type: 3}
-  nextLevel: {fileID: 11400000}
+  nextLevel: {fileID: 11400000, guid: 312fb1743895cd645ae8d7ab024beafa, type: 2}
   difficultyRating: 2
   isTutorial: 0

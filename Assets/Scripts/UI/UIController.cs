@@ -17,6 +17,7 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject titleGraphic;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject openingScene;
+    [SerializeField] private GameObject closingScene;
     [SerializeField] private GameObject levelSelectMenu;
     [SerializeField] private bool isMainMenu;
 
@@ -166,6 +167,13 @@ public class UIController : MonoBehaviour
         fadeScreen.SetActive(false); 
         GameManager.i.UnPauseGame();
     }
+
+    private void CompleteGame()
+    {
+        GameManager.i.PauseGame();
+        closingScene.SetActive(true);
+        OpeningDialogHandler.i.StartDialog();
+    }
     #endregion
     #region GameUIRelated
     public void PrepareUI()
@@ -173,6 +181,7 @@ public class UIController : MonoBehaviour
         PlayerInputController_TopDown.OnUpdatePlasmaCount += UpdateGameUI;
         PlayerInputController_TopDown.OnKeyAction += UpdateKeyUI;
         LevelExitHandler.OnExitReached += FadeToBlack;
+        LevelExitHandler.OnFinalLevelCompleted += CompleteGame;
         FadeManager.OnFadeToBlackComplete += ActivateLevelSelectMenu;
         FadeManager.OnFadeFromBlackComplete += FadeComplete;
     }

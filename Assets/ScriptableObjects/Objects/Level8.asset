@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 479c520ecfce8754d9ab24ca615673e7, type: 3}
-  m_Name: Tutorial_1
+  m_Name: Level8
   m_EditorClassIdentifier: Assembly-CSharp::LevelSO
-  levelName: 'Tutorial One: Movement'
-  tutorialName: WASD
-  levelPrefab: {fileID: 7776369669172539635, guid: b42ca6db72d0bcd478bb15b1a6456527, type: 3}
-  nextLevel: {fileID: 11400000, guid: d3932a4caed05f8428ece4fd1bbe43cc, type: 2}
-  difficultyRating: 0
-  isTutorial: 1
+  levelName: 'Level Eight: Skull'
+  tutorialName: 
+  levelPrefab: {fileID: 6011375398538757352, guid: 0128baa6f6445c64cac33a1294815d21, type: 3}
+  nextLevel: {fileID: 11400000, guid: c87e755813116c54bba2003d232a6201, type: 2}
+  difficultyRating: 2
+  isTutorial: 0
   isFinalLevel: 0
